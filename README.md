@@ -281,7 +281,9 @@ Full docs, demos, and API examples are available at the component website:
 Contributions, issues, and feature requests are welcome! Feel free to:
 
 Fork the repository
+
 Create a feature branch
+
 Submit a pull request
 
 ---
