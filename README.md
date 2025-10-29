@@ -280,11 +280,9 @@ Full docs, demos, and API examples are available at the component website:
 
 Contributions, issues, and feature requests are welcome! Feel free to:
 
-1. Fork the repo.
-2. Create a feature branch (`git checkout -b feature/new-animation`).
-3. Commit your changes (`git commit -m 'Add new animation variant'`).
-4. Push to the branch (`git push origin feature/new-animation`).
-5. Open a pull request.
+Fork the repository
+Create a feature branch
+Submit a pull request
 
 ---
 
