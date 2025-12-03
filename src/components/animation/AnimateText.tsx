@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { useGSAP } from '@gsap/react';
 import { AnimationItem, AnimationVariant } from './AnimationItem';
 import gsap from 'gsap';
@@ -31,7 +31,7 @@ interface AnimateTextProps {
 
 export const AnimateText: React.FC<AnimateTextProps> = ({
   children,
-  as = 'div',
+  as: Component = 'div',
   className,
   type = 'chars',
   stagger = type === 'chars' ? 0.02 : 0.08,
@@ -39,7 +39,8 @@ export const AnimateText: React.FC<AnimateTextProps> = ({
   duration,
   ease,
 }) => {
-  const textRef = useRef<HTMLDivElement>(null);
+  const textRef = useRef<HTMLElement>(null);
+  const [isSplit, setIsSplit] = useState(false);
   const splitTextRef = useRef<any>(null);
   const childClassName = `split-${type.slice(0, -1)}`;
 
@@ -57,12 +58,18 @@ export const AnimateText: React.FC<AnimateTextProps> = ({
         type,
         [type + "Class"]: childClassName,
       });
+      setIsSplit(true);
     }
   }, { scope: textRef, dependencies: [children, type] });
+
+  if (!isSplit) {
+    return <Component ref={textRef} className={className}>{children}</Component>;
+  }
 
   return (
     <AnimationItem
       ref={textRef}
+      key={children + type}
       as={as}
       className={className}
       variant={variant}
