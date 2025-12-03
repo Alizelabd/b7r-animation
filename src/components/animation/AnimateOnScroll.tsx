@@ -3,8 +3,8 @@
 import React, { useRef, useMemo, useCallback } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { AnimationContext, AnimationContextState } from '../../AnimationContext';
-import { presets, CustomAnimation } from '../../animationPresets';
+import { AnimationContext, AnimationContextState } from './AnimationContext';
+import { presets, CustomAnimation } from './animationPresets';
 
 gsap.registerPlugin(ScrollTrigger);
 

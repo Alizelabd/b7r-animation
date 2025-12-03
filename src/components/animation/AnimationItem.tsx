@@ -2,8 +2,8 @@
 
 import React, { useRef, forwardRef, useImperativeHandle } from 'react';
 import { useGSAP } from '@gsap/react';
-import { useAnimation } from './components/animation/AnimationContext';
-import { presets, CustomAnimation } from './components/animation/animationPresets';
+import { useAnimation } from './AnimationContext';
+import { presets, CustomAnimation } from './animationPresets';
 
 export interface AnimationItemProps {
   children: React.ReactNode;
