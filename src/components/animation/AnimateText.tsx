@@ -40,15 +40,20 @@ export const AnimateText: React.FC<AnimateTextProps> = ({
   ease,
 }) => {
   const textRef = useRef<HTMLDivElement>(null);
+  const splitTextRef = useRef<any>(null);
   const childClassName = `split-${type.slice(0, -1)}`;
 
   useGSAP(async () => {
     if (textRef.current && children) {
       const SplitText = await getSplitText();
-      if (textRef.current.split) {
-        textRef.current.split.revert();
+      
+      // Revert previous split if it exists
+      if (splitTextRef.current) {
+        splitTextRef.current.revert();
       }
-      textRef.current.split = new SplitText(textRef.current, {
+      
+      // Create new SplitText instance and store it in the ref
+      splitTextRef.current = new SplitText(textRef.current, {
         type,
         [type + "Class"]: childClassName,
       });
